@@ -1,6 +1,6 @@
 general:
    artifacts:
-     - $PODAM_TEST_REPORTS
+     - $CIRCLE_TEST_REPORTS
      - target
      
 dependencies:
@@ -11,5 +11,5 @@ test:
   override:
    - mvn clean install
   post:
-    - mkdir -p $PODAM_TEST_REPORTS/junit/
-    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $PODAM_TEST_REPORTS/junit/ \;
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
